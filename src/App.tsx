@@ -1,5 +1,6 @@
 import React from 'react';
-import './App.css';
+//import './App.css';
+import './components/style.css';
 import MainPage from './pages/main';
 import { Settings } from './components/Settings';
 import { BrowserRouter as Router, Route, Link, Switch  } from 'react-router-dom';
@@ -8,7 +9,7 @@ import { BrowserRouter as Router, Route, Link, Switch  } from 'react-router-dom'
 function App() {
   return (
     <Router>
-    <section className="section is-small" style={{width: "20%"}} >
+    <section className="main-container"  >
       <div className="container" >
         
         <Switch>

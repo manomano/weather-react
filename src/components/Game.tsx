@@ -20,10 +20,10 @@ interface CurrentGame {
   
      
     return(
-      <div>
-        <div className="columns is-multiline">
-            <div className="column ">
-              <button className="button is-small" onClick={()=>onSelectCity("left")} style={{padding: "15% 0% 15% 0%"}}>
+      
+        <div className="grid-container" style={{margin:'0'}}>
+            
+              <button className="button-game" onClick={()=>onSelectCity("left")} >
                 <div className="column is-narrow">
                   <p className="bd-notification is-primary">{data.left.city},</p>
                   <p className="bd-notification is-primary">{data.left.countryName}</p>                  
@@ -31,17 +31,17 @@ interface CurrentGame {
                 
                 </div>
               </button>
-            </div>
-            <div className="column" >
-              <button className="button is-small" onClick={()=>onSelectCity("right")} style={{padding: "15% 0% 15% 0%"}}>
+            
+            
+              <button className="button-game" onClick={()=>onSelectCity("right")} >
                 <div className="column is-narrow">
                 <p className="bd-notification is-primary">{data.right.city}</p>
-                <p className="bd-notification is-primary">{data.left.countryName}</p>
+                <p className="bd-notification is-primary">{data.right.countryName}</p>
                   {data.gameState==1? <p className="bd-notification is-primary">{convertTemperature(data.unit, data.right.temperature || 0)}</p>:null}
                 </div>
               </button>        
-            </div>
-        </div> 
+            
+        
 
      
       </div>

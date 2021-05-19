@@ -114,15 +114,22 @@ const MainPage: FC = () => {
         
     },[gameState]);
         return (
-            <div className="container has-text-left">
-                <div>
-                    <Link to="/settings"><button className="button is-medium">Settings</button></Link> 
+            <div>
+                <div className="block">
+                    <Link to="/settings"><button className="button-standard">Settings</button></Link> 
                 </div>
-                <h1 className="title">Which city is hotter?</h1>
-                {gameState===1? <div className="is-medium"> {resultTitle}</div>:null }
-                {gameState===1? <div> your score is: {score}</div>:null }                
-                <Game  data={data} onSelectCity={ selectCityHandler} />
-                <Next isVisible={true} onNext={resumeGame}/>
+                <div className="block-standard" style={{ height:'6rem'}}>
+                    {gameState===0?<h1 className="title" style={{width:'auto'}}>Which city is hotter?</h1>:null}
+                    {gameState===1? <div className="title"> {resultTitle}</div>:null }
+                    <div className="score"> Score: {score}</div>  
+                </div>
+                
+                <div className="block">
+                    <Game  data={data} onSelectCity={ selectCityHandler} />
+                </div>
+                <div className="block-standard flex-center" style={{ height:'5rem', marginTop:'14%', marginLeft: 0}}>
+                    <Next isVisible={gameState===1} onNext={resumeGame}/>
+                </div>
             </div>
             );
 }

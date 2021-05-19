@@ -4,7 +4,8 @@ export const convertTemperature = (destUnit:TemperaturUnits, temperature:number 
     let displayTemperature = temperature;
     let sign = temperature>=0? "+" : "-";
     if(destUnit===TemperaturUnits.Ferenheit){
-        displayTemperature = (temperature * 9/5) + 32;       ;
+        displayTemperature = Number(((temperature * 9/5) + 32).toFixed(2));       
     }
-    return `${sign} ${displayTemperature} ${destUnit}`;
+    const symbol = destUnit===TemperaturUnits.Ferenheit?'F':'C';
+    return `${sign} ${displayTemperature} ${symbol}`;
 }
