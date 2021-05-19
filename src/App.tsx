@@ -10,12 +10,10 @@ function App() {
     <Router>
     <section className="section is-small" style={{width: "20%"}} >
       <div className="container" >
-        <div>
-          <Link to="/settings"><button className="button is-medium">Settings</button></Link> 
-        </div>
+        
         <Switch>
-            <Route path="/" component={MainPage} />
-            <Route path="/settings" component={Settings} />
+            <Route exact  path="/" component={MainPage} />
+            <Route exact  path="/settings" component={Settings} />
         </Switch>
       </div>
     </section>  

@@ -6,6 +6,7 @@ const initialState: GameState = {
 }
 
 export default (state = initialState, action: GameAction): GameState => {
+  console.log("state in reducer", state);
   switch(action.type) {
     case SAVE_GAME:
       return {

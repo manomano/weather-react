@@ -1,4 +1,4 @@
-import React, { FC,useState } from "react";
+import React, { FC,useState, useEffect } from "react";
 import { RootState } from '../store';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -8,6 +8,7 @@ import Game from '../components/Game';
 import Next from '../components/Next';
 import { City,TemperaturUnits, GameRecord } from '../store/types';
 import { saveGame } from '../store/actions/gameAction';
+import { Link  } from 'react-router-dom';
 
 
 
@@ -22,20 +23,20 @@ interface mainPageState {
 
 const MainPage: FC = () => {
 
-    //const dispatch = useDispatch();
+    const dispatch = useDispatch();
     const unit = useSelector((state: RootState) => state.game.unit);
     const  FromKelvin = (destUnit:TemperaturUnits, temperature: number): number =>{
-        //const fahrenheit = (temperature * 1.8 - 459.67).toFixed(2);
+        
         const celsius = Number((temperature - 273.15).toFixed(2));
         return celsius;
-        //return destUnit==TemperaturUnits.Celsius?celsius:fahrenheit;
+        
     }
     const selectRandomCityPair = ():GameRecord => {
         const max = cities.length - 1;
         const left = Math.floor(Math.random() * (max - 1)) + 1;
         let right = Math.floor(Math.random() * (max - 1)) + 1;
-        if(right==left){
-            right = right==max? right-= 1:right += 1;
+        if(right===left){
+            right = right===max? right-= 1:right += 1;
         }
         return {left: cities[left], right: cities[right], isWon:false}
     }
@@ -52,7 +53,7 @@ const MainPage: FC = () => {
             )
           );
 
-        const d = fetches[0].id==left.id; 
+        const d = fetches[0].id===left.id; 
         const leftIndex = +(!d);
         const rightIndex = +d; 
         const leftTemp = FromKelvin(unit,fetches[leftIndex].main.temp_max);
@@ -63,13 +64,10 @@ const MainPage: FC = () => {
         });
 
         setRight({
-            ...left,
+            ...right,
             temperature: rightTemp
         });
-
-        
-        const selectedTemp = selectedSide==='left'?leftTemp:rightTemp;
-        //leftTemp > rightTemp && selectedSide=='left'?true:false
+              
         
         if(selectedSide==='left'){
             setScore(leftTemp > rightTemp?1:0);
@@ -81,11 +79,13 @@ const MainPage: FC = () => {
     }
 
     const selectCityHandler = (selectedSide:string) =>{
-        if(gameState==1){
+        if(gameState===1){
             return;
         }
         fetchWeather(selectedSide);
     } 
+
+   
 
     const resumeGame = () =>{
         let pair  = selectRandomCityPair();
@@ -103,10 +103,23 @@ const MainPage: FC = () => {
     
 
     const data  = { left: left, right:right, gameState, unit};
+    const resultTitle = score===0? "You LOST!":"You WON!"
+
+
+    useEffect(() => {
+        if(gameState===1){
+            console.log("saveGame left.id",left.id, right.id );
+            dispatch(saveGame({left, right, isWon:(!!score)}));
+        }
+        
+    },[gameState]);
         return (
             <div className="container has-text-left">
+                <div>
+                    <Link to="/settings"><button className="button is-medium">Settings</button></Link> 
+                </div>
                 <h1 className="title">Which city is hotter?</h1>
-                {gameState===1? <div> your score is: {score}</div>:null }
+                {gameState===1? <div className="is-medium"> {resultTitle}</div>:null }
                 {gameState===1? <div> your score is: {score}</div>:null }                
                 <Game  data={data} onSelectCity={ selectCityHandler} />
                 <Next isVisible={true} onNext={resumeGame}/>

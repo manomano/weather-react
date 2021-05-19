@@ -1,7 +1,7 @@
 import React, { FC,useState, FormEvent }from 'react';
 import { RootState } from '../store';
 import { useDispatch, useSelector } from 'react-redux';
-import { BrowserRouter as Router, Route, Link, Switch  } from 'react-router-dom';
+import { Link  } from 'react-router-dom';
 import { TemperaturUnits} from '../store/types';
 import { setUnit } from '../store/actions/gameAction';
 import {convertTemperature} from './utils';
@@ -39,11 +39,11 @@ export const Settings: FC = () => {
        <div className="title">History</div> 
        {
            history.map(row=>{
-            <div className="column">
+            return (<div className="column">
                 <div>{row.left.city}</div>
                 <div>{row.left.countryName}</div>
                 <div>{convertTemperature(unit, row.left.temparature)}</div>
-            </div>
+            </div>)
            })
        }
     </div>)
