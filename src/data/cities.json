@@ -1,0 +1,140 @@
+[ {
+    "id": 2950158,
+    "city": "Berlin",
+    "state": "",
+    "country": "DE",
+    "countryName":"Germany",
+    "coord": {
+        "lon": 10.45,
+        "lat": 54.033329
+    }
+}, {
+    "id": 4119617,
+    "city": "London",
+    "state": "AR",
+    "country": "US",
+    "countryName":"United States",
+    "coord": {
+        "lon": -93.25296,
+        "lat": 35.328972
+    }
+},
+{
+    "id": 611717,
+    "city": "Tbilisi",
+    "state": "",
+    "country": "GE",
+    "countryName":"Georgia",
+    "coord": {
+        "lon": 44.833679,
+        "lat": 41.694111
+    }
+},
+{
+    "id": 2968815,
+    "city": "Paris",
+    "state": "",
+    "country": "FR",
+    "countryName":"France",
+    "coord": {
+        "lon": 2.3486,
+        "lat": 48.853401
+    }
+},{
+    "id": 6545174,
+    "city": "Kennington",
+    "state": "",
+    "country": "GB",
+    "countryName":"Great Britan",
+    "coord": {
+        "lon": -0.10566,
+        "lat": 51.487961
+    }
+},
+{
+    "id": 7667578,
+    "city": "Marneuli",
+    "state": "",
+    "country": "GE",
+    "countryName":"Georgia",
+    "coord": {
+        "lon": 44.810829,
+        "lat": 41.463612
+    }
+},
+{
+    "id": 7667714,
+    "city": "Tsalka",
+    "state": "",
+    "country": "GE",
+    "countryName":"Georgia",
+    "coord": {
+        "lon": 44.083328,
+        "lat": 41.583328
+    }
+},
+{
+    "id": 7667751,
+    "city": "Kharagauli",
+    "state": "",
+    "country": "GE",
+    "countryName":"Georgia",
+    "coord": {
+        "lon": 43.197731,
+        "lat": 42.02137
+    }
+},{
+    "id": 6359304,
+    "city": "Madrid",
+    "state": "",
+    "country": "ES",
+    "countryName":"Spain",
+    "coord": {
+        "lon": -3.68275,
+        "lat": 40.489349
+    }
+},
+{
+    "id": 6359305,
+    "city": "Majadahonda",
+    "state": "",
+    "country": "ES",
+    "countryName":"Spain",
+    "coord": {
+        "lon": -3.86993,
+        "lat": 40.47385
+    }
+},
+{
+    "id": 5128638,
+    "city": "New York",
+    "state": "NY",
+    "country": "US",
+    "countryName": "United States",
+    "coord": {
+        "lon": -75.499901,
+        "lat": 43.000351
+    }
+},
+{
+    "id": 4887398,
+    "city": "Chicago",
+    "state": "IL",
+    "country": "US",
+    "countryName": "United States",
+    "coord": {
+        "lon": -87.650047,
+        "lat": 41.850029
+    }
+},
+{
+    "id": 5186266,
+    "city": "Dallas",
+    "state": "PA",
+    "country": "US",
+    "countryName": "United States",
+    "coord": {
+        "lon": -75.963249,
+        "lat": 41.336189
+    }
+}]
