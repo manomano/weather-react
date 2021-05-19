@@ -5,8 +5,8 @@ const initialState: GameState = {
   unit: TemperaturUnits.Celsius
 }
 
-export default (state = initialState, action: GameAction): GameState => {
-  console.log("state in reducer", state);
+const GameReducer =   (state = initialState, action: GameAction): GameState => {
+  
   switch(action.type) {
     case SAVE_GAME:
       return {
@@ -23,3 +23,5 @@ export default (state = initialState, action: GameAction): GameState => {
       return state;
   }
 }
+
+export default GameReducer;

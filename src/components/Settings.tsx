@@ -1,4 +1,4 @@
-import React, { FC,useState, FormEvent }from 'react';
+import React, { FC, FormEvent }from 'react';
 import { RootState } from '../store';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link  } from 'react-router-dom';
@@ -14,7 +14,7 @@ export const Settings: FC = () => {
     const history = useSelector((state: RootState) => state.game.history);
     const dispatch = useDispatch();
     const changeHandler = (e: FormEvent<HTMLInputElement>) => {
-        const val = e.currentTarget.value == 'Celsius'?TemperaturUnits.Celsius: TemperaturUnits.Ferenheit;
+        const val = e.currentTarget.value === 'Celsius'?TemperaturUnits.Celsius: TemperaturUnits.Ferenheit;
         dispatch(setUnit(val));
     }
 

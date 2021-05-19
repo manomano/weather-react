@@ -27,7 +27,7 @@ interface CurrentGame {
                 <div className="column is-narrow">
                   <p className="bd-notification is-primary">{data.left.city},</p>
                   <p className="bd-notification is-primary">{data.left.countryName}</p>                  
-                  {data.gameState==1? <p className="bd-notification is-primary">{convertTemperature(data.unit, data.left.temperature || 0)}</p>:null}
+                  {data.gameState===1? <p className="bd-notification is-primary">{convertTemperature(data.unit, data.left.temperature || 0)}</p>:null}
                 
                 </div>
               </button>
@@ -37,7 +37,7 @@ interface CurrentGame {
                 <div className="column is-narrow">
                 <p className="bd-notification is-primary">{data.right.city}</p>
                 <p className="bd-notification is-primary">{data.right.countryName}</p>
-                  {data.gameState==1? <p className="bd-notification is-primary">{convertTemperature(data.unit, data.right.temperature || 0)}</p>:null}
+                  {data.gameState===1? <p className="bd-notification is-primary">{convertTemperature(data.unit, data.right.temperature || 0)}</p>:null}
                 </div>
               </button>        
             

@@ -6,19 +6,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import cities from '../data/cities.json';
 import Game from '../components/Game';
 import Next from '../components/Next';
-import { City,TemperaturUnits, GameRecord } from '../store/types';
+import { TemperaturUnits, GameRecord } from '../store/types';
 import { saveGame } from '../store/actions/gameAction';
 import { Link  } from 'react-router-dom';
 
 
 
-interface mainPageState {
-    left: City;
-    right: City;
-    score: number;
-    gameState: number;
 
-}
 
 
 const MainPage: FC = () => {
@@ -41,17 +35,27 @@ const MainPage: FC = () => {
         return {left: cities[left], right: cities[right], isWon:false}
     }
 
-    const fetchWeather = async(selectedSide: string) =>{
+    const fetchWeather = async(selectedSide: string):Promise<void> =>{
         const ids = [left.id, right.id];
         const api_key = '0739b5cd43e8e6753170014691a524d9';
+        let isError = false;
         //process.env.REACT_APP_API_KEY
-        const fetches = await Promise.all(
+        let fetches = [];
+        try{
+            fetches = await Promise.all(
             ids.map((e) =>
               fetch(
                 `https://api.openweathermap.org/data/2.5/weather?id=${e}&appid=${api_key}` 
               ).then((e) => e.json())
             )
           );
+        }catch(e){
+            isError = true;
+        }
+        
+        if(isError){
+            return;
+        }
 
         const d = fetches[0].id===left.id; 
         const leftIndex = +(!d);
@@ -108,7 +112,6 @@ const MainPage: FC = () => {
 
     useEffect(() => {
         if(gameState===1){
-            console.log("saveGame left.id",left.id, right.id );
             dispatch(saveGame({left, right, isWon:(!!score)}));
         }
         
