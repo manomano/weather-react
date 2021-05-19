@@ -49,7 +49,7 @@ export const Settings: FC = () => {
        {
            history.map((row, ind)=>{
             return (
-            <div className="grid-container-settings">  
+            <div className="grid-container-settings" key={`row_${ind}`}>  
                 <div className="weather-block">
                     <div>{row.left.city},</div>
                     <div>{row.left.countryName}</div>
