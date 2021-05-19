@@ -45,11 +45,11 @@ export const Settings: FC = () => {
           </div>
        </div>
        <div className="title">History</div>
-       <div className="list-container">
+       <div >
        {
            history.map((row, ind)=>{
             return (
-            <div className="flex-container">  
+            <div className="grid-container-settings">  
                 <div className="weather-block">
                     <div>{row.left.city},</div>
                     <div>{row.left.countryName}</div>
