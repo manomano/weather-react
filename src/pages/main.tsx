@@ -13,6 +13,7 @@ const MainPage: FC = () => {
 
     const dispatch = useDispatch();
     const unit = useSelector((state: RootState) => state.game.unit);
+    const totalScore = useSelector((state: RootState) => state.game.score);
     const  FromKelvin = (destUnit: TemperaturUnits, temperature: number): number => {
 
         const celsius = Number((temperature - 273.15).toFixed(2));
@@ -113,7 +114,7 @@ const MainPage: FC = () => {
                 <div className="block-standard" style={{ height: '6rem'}}>
                     {gameState === 0 ? <h1 className="title" style={{width: 'auto'}}>Which city is hotter?</h1> : null}
                     {gameState === 1 ? <div className="title"> {resultTitle}</div> : null }
-                    <div className="score"> Score: {score}</div>
+                    <div className="score"> Score: {totalScore}</div>
                 </div>
 
                 <div className="block">

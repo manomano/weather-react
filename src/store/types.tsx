@@ -70,6 +70,7 @@ export interface Weather {
   export interface GameState {
     history: GameRecord[] ;
     unit: TemperaturUnits;
+    score: number;
   }
 
   export interface SetUnitAction {
