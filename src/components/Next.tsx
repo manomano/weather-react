@@ -1,17 +1,16 @@
 import React, { FC } from 'react';
 
-interface nextData {
+interface NextData {
     isVisible: boolean;
-    onNext:() => void;
+    onNext: () => void;
 }
 
+const Next: FC<NextData> = (props) => {
 
-const Next: FC<nextData> = ({ isVisible, onNext }) => {
-    if (isVisible){
-        return (<button className="button-standard centered" onClick={onNext}>Next cities</button>);
+    if (props.isVisible) {
+        return (<button className="button-standard centered" onClick={props.onNext}>Next cities</button>);
     }
-    return (<div></div>);    
-}
-
+    return (<div/>);
+};
 
 export default Next;

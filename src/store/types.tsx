@@ -1,12 +1,10 @@
 export const SAVE_GAME = 'SAVE_GAME';
 export const SET_UNIT = 'SET_UNIT';
 
-
 export enum TemperaturUnits {
-  Celsius='Celsius',
-  Ferenheit='Ferenheit'
+  Celsius= 'Celsius',
+  Ferenheit= 'Ferenheit',
 }
-
 
 export interface Weather {
     description: string;
@@ -14,7 +12,7 @@ export interface Weather {
     id: number;
     main: string;
   }
-  
+
   export interface WeatherData {
     base: string;
     clouds: {
@@ -53,28 +51,26 @@ export interface Weather {
   }
 
   export interface City {
-    id: number;   
+    id: number;
     city: string;
     state: string;
     country: string;
     countryName: string;
     temperature?: number;
-    [propName: string]: any;    
-       
-  }
+    [propName: string]: any;
 
+  }
 
   export interface GameRecord {
     left: City;
     right: City;
-    isWon: boolean;     
+    isWon: boolean;
   }
 
   export interface GameState {
     history: GameRecord[] ;
     unit: TemperaturUnits;
   }
-
 
   export interface SetUnitAction {
     type: typeof SET_UNIT;
@@ -83,9 +79,7 @@ export interface Weather {
 
   export interface AddGameAction {
     type: typeof SAVE_GAME;
-    payload: GameRecord
+    payload: GameRecord;
   }
 
- 
-  
   export type GameAction = SetUnitAction | AddGameAction;

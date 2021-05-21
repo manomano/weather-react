@@ -1,33 +1,27 @@
 import { createStore,  combineReducers } from 'redux';
 
-
-
-
-
 import GameReducer from './reducers/GameReducer';
 
 const rootReducer = combineReducers({
-  game: GameReducer  
+  game: GameReducer,
 });
-
 
 function saveToLocalStorage(state: any) {
   try {
     const serialisedState = JSON.stringify(state);
-    localStorage.setItem("game", serialisedState);
+    localStorage.setItem('game', serialisedState);
   } catch (e) {
-    console.warn(e);
+
   }
 }
 
-
 function loadFromLocalStorage() {
   try {
-    const serialisedState = localStorage.getItem("game");
-    if (serialisedState === null) return undefined;
+    const serialisedState = localStorage.getItem('game');
+    if (serialisedState === null) { return undefined; }
     return JSON.parse(serialisedState);
   } catch (e) {
-    console.warn(e);
+
     return undefined;
   }
 }
